@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  margin: 0;
+}
+
+.main-header {
+  background-color: coral;
+  color: #fff;
+  padding: 16px;
+}
+
+.product-img {
+  color: #fff;
+  text-align: center;
+}
+
+.product-img > img {
+  margin: 28px;
+  border: 4px solid #000;
+  border-radius: 16px;
+}
+
+.description-section {
+  width: 70%;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.description-section >  h2 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.description-section > ul {
+  float: left;
+  width: 45%;
+  box-sizing: border-box;
+}
+
+.description-section > table {
+  float: right;
+  width: 40%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.description-section table td,  .description-section table  th {
+  border-bottom: 1px solid rgb(149, 141, 141);
+}
+
+.description-section table tr:nth-child(even) {
+  background-color: #bdbaba;
+}
+
+
+.clr {
+  clear: both;
+}
+
+.description-section > form {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.description-section > form > input {
+  padding: 10px;
+  border: none;
+  background-color: #555;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.description-section > form > input:hover {
+  background-color: coral;
+  color: #000;
+}
+
+.main-footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+
