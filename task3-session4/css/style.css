@@ -457,6 +457,7 @@ body > .shop-list-hidden li ul li:hover {
 #hero-section > .secondary-hero > img {
   width: 100%;
   height: 290px;
+  z-index: -1;
   object-fit: cover;
 }
 
@@ -552,7 +553,7 @@ body > .shop-list-hidden li ul li:hover {
  background-color: #ffcb0d; 
 }
 
-#hero-section > .secondary-hero:hover, #hero-section > .primary-hero:hover  {
+#hero-section > .secondary-hero:hover img, #hero-section > .primary-hero:hover img {
   transform: scale(1.2) rotate(5deg);
 }
 
