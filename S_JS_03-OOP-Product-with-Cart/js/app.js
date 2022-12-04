@@ -3,7 +3,7 @@ import CartLine from "./CartLine.js";
 import Cart from "./Cart.js";
 
 const getProductsFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("products") || []);
+  return JSON.parse(localStorage.getItem("products") || '[]');
 };
 
 const getCartObject = () => {
