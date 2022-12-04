@@ -97,14 +97,14 @@ const createProductHTMLRow = (productObj, index) => {
               productObj.quantity
             }">
             <div class="input-group-btn">
-                <button type="button" class="btn btn-sm btn-primary btn-plus" onclick="incQuantity(${index})">
+                <button type="button" class="btn btn-sm btn-primary btn-plus" onclick="window.incQuantity(${index})">
                     <i class="fa fa-plus"></i>
                 </button>
             </div>
         </div>
     </td>
     <td class="align-middle">$${productObj.calculateTotal()}</td>
-    <td class="align-middle"><button class="btn btn-sm btn-danger" type="button" onclick="removeProduct(${index})"><i class="fa fa-times"></i></button></td>
+    <td class="align-middle"><button class="btn btn-sm btn-danger" type="button" onclick="window.removeProduct(${index})"><i class="fa fa-times"></i></button></td>
   </tr>`;
 };
 
