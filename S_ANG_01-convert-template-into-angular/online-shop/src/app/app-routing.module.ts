@@ -9,11 +9,12 @@ import { ShopComponent } from './components/shop/shop.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'shop', component: ShopComponent },
   { path: 'detail', component: ShopDetailComponent },
   { path: 'pages/cart', component: CartComponent },
   { path: 'pages/checkout', component: CheckoutComponent },
-  { path: 'contact', component: ContactComponent}
+  { path: 'contact', component: ContactComponent },
 ];
 
 @NgModule({
