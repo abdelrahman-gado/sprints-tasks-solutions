@@ -14,6 +14,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { StarsComponent } from './components/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     CheckoutComponent,
     ContactComponent,
     ProductComponent,
-    ProductsComponent
+    ProductsComponent,
+    StarsComponent
   ],
   imports: [
     BrowserModule,
