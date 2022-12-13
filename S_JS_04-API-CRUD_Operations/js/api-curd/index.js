@@ -96,18 +96,16 @@ const createProductsElemenets = (data, container) => {
   }
 };
 
-const getFeaturedProductsData = async () => {
+const getProductsData = async (container, url) => {
   try {
-    const response = await fetch(`${baseAPIUrl}products/getRecent`);
+    const response = await fetch(`${baseAPIUrl}${url}`);
     const data = await response.json();
-    createProductsElemenets(data, featuredProductsContainer);
-    createProductsElemenets(data, recentProductsConatainer);
+    createProductsElemenets(data, container);
   } catch (err) {
     console.log(err.message);
     alert(err.message);
   }
 };
-
 
 const getCategoriesData = async () => {
   try {
@@ -121,4 +119,5 @@ const getCategoriesData = async () => {
 };
 
 getCategoriesData();
-getFeaturedProductsData();
+getProductsData(recentProductsConatainer, "products/getRecent");
+getProductsData(featuredProductsContainer, "products/getFeatured");
