@@ -13,6 +13,7 @@ import { StorageService } from "src/app/services/storage.service";
 })
 export class CheckoutComponent {
   order: Order;
+  defaultCountry:string = "Egypt";
 
   orderForm = new FormGroup({
     first_name: new FormControl("", [
@@ -31,7 +32,7 @@ export class CheckoutComponent {
     ]),
     address1: new FormControl("", [Validators.required]),
     address2: new FormControl(""),
-    country: new FormControl("Egypt", [Validators.required]),
+    country: new FormControl(this.defaultCountry, [Validators.required]),
     city: new FormControl("", [Validators.required]),
     state: new FormControl("", [Validators.required]),
     zip_code: new FormControl("", Validators.required),
@@ -47,15 +48,17 @@ export class CheckoutComponent {
     this.order = new Order(cart);
   }
 
-
   placeOrder() {
     if (this.orderForm.valid) {
-
+      console.log(this.orderForm.value)
       const userToken = this.authService.getToken();
       const user_id = this.authService.getUserId();
 
-      const orderObject = this.order.createOrderObject(this.orderForm.value, user_id);
-      
+      const orderObject = this.order.createOrderObject(
+        this.orderForm.value,
+        user_id
+      );
+
       this.orderService.addOrder(orderObject, userToken).subscribe({
         next: (data: any) => {
           alert("Your order is submitted successfully");
