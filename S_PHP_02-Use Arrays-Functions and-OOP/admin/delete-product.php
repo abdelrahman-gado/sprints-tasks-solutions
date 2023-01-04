@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../dal/dal.php";
 
-$product_id = $_GET["id"];
+$product_id = $_POST["id"];
 
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($conn->connect_error) {

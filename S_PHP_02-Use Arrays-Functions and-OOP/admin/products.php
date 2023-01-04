@@ -24,7 +24,7 @@ $products = getProducts();
             <th scope="col">Category</th>
             <th scope="col">Color</th>
             <th scope="col">Size</th>
-            <th scope="col">Discount</th>
+            <th scope="col">Discount %</th>
             <th scope="col">Price</th>
             <th scope="col">Rating</th>
             <th scope="col">Edit</th>
@@ -41,11 +41,21 @@ $products = getProducts();
               <td class="align-middle"><?= $product["category_name"] ?></td>
               <td class="align-middle"><?= $product["color_name"] ?></td>
               <td class="align-middle"><?= $product["size_name"] ?></td>
-              <td class="align-middle"><?= $product["discount"] ?></td>
+              <td class="align-middle"><?= $product["discount"] * 100 ?>%</td>
               <td class="align-middle"><?= $product["price"] ?></td>
-              <td class="align-middle"><?= getHTMLStars($product["rating"]) . " (" . number_format($product["rating"], 1) . ")" ?></td>
-              <td><a class="btn btn-primary font-weight-bold" href="add-product.php?id=<?= $product["id"] ?>">Edit</a></td>
-              <td><a class="btn btn-primary font-weight-bold" href="delete-product.php?id=<?= $product["id"] ?>">Delete</a></td>
+              <td class="align-middle"><?= getHTMLStars($product["rating"]) . " (" . number_format($product["rating"] ?? 0, 1) . ")" ?></td>
+              <td>
+                <form action="edit-product.php" method="POST">
+                  <input type="text" name="id" value="<?= $product["id"] ?>" hidden>
+                  <button type="submit" class="btn btn-primary font-weight-bold">Edit</button>
+                  <form>
+              </td>
+              <td>
+                <form action="delete-product.php" method="POST">
+                  <input type="text" name="id" value="<?= $product["id"] ?>" hidden>
+                  <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
+                </form>
+              </td>
             </tr>
           <?php
           }

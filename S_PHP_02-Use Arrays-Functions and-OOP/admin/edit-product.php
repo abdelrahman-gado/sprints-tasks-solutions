@@ -1,7 +1,17 @@
 <?php
 
 require_once __DIR__ . "/../logic/products.php";
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+if (count($_POST) == 1 && isset($_POST["id"]) && !empty($_POST["id"])) {
+  $id = $_POST["id"];
+  $result = getProductById($id);
+  if (count($result) > 0) {
+    $oldValues = $result[0];
+  }
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && count($_POST) >= 2) {
+  
   // validate the values
   $errors = [];
 
@@ -52,26 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $is_recent = isset($_POST["is_recent"]) ? 1 : 0;
     $is_featured = isset($_POST["is_featured"]) ? 1 : 0;
-    $result = addProduct(
-      $name,
-      $description,
-      $image_url,
-      $price,
-      $bar_code,
-      $size_id,
-      $color_id,
-      $category_id,
-      $discount,
-      $is_recent,
-      $is_featured
-    );
 
-
-    if ($result) {
-      header("Location: ./products.php");
-    } else {
-      echo "Error";
-    }
+    // Update the product here.
   } else {
     $oldValues = $_POST;
     $oldFiles = $_FILES;
@@ -92,7 +84,7 @@ $categories = getCategories();
 <div class="container-fluid">
   <div class="row bg-secondary py-1 px-xl-5 d-flex d-flex justify-content-center mb-2">
     <div class="col-lg-8 d-none d-lg-block">
-      <h1 class="mb-3">Add Product</h1>
+      <h1 class="mb-3">Edit Product</h1>
       <form action="<?= $_SERVER["PHP_SELF"] ?>" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="name">Product Name: </label>
@@ -101,11 +93,11 @@ $categories = getCategories();
         </div>
         <div class="form-group">
           <label for="category">Product Category: </label>
-          <select class="form-control" id="category" name="category">
+          <select class="form-control" id="category" name="category_i">
             <?php
             foreach ($categories as $category) {
             ?>
-              <option value="<?= $category["id"] ?>" <?= (!isset($errors["category"]) && isset($oldValues["category"]) && $category["id"] == $oldValues["category"]) ? 'selected' : "" ?>><?= $category["name"] ?></option>
+              <option value="<?= $category["id"] ?>" <?= (!isset($errors["category"]) && isset($oldValues["category_id"]) && $category["id"] == $oldValues["category_id"]) ? 'selected' : "" ?>><?= $category["name"] ?></option>
             <?php
             }
             ?>

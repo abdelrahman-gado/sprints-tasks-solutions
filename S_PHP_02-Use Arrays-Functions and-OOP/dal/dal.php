@@ -20,3 +20,20 @@ function get_rows($q) {
   $con->close();
   return $rows;
 }
+
+
+function execute($q) {
+  $con = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+  if ($con->connect_error) {
+    return [];
+  }
+
+  $done = $con->query($q);
+  if (!$done) {
+    return false;
+  }
+
+  $con->close();
+  echo "Hello";
+  return true;
+}
