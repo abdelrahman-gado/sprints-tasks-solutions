@@ -21,11 +21,25 @@ function get_rows($q) {
   return $rows;
 }
 
+function getSingleRow($query) {
+  $row = false;
+  $con = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+  if ($con->connect_error) {
+    return false;
+  }
+
+  $q = $con->query($query);
+  $row = $q->fetch_assoc();
+  $con->close();
+
+  return $row;
+}
+
 
 function execute($q) {
   $con = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
   if ($con->connect_error) {
-    return [];
+    return false;
   }
 
   $done = $con->query($q);
@@ -34,6 +48,5 @@ function execute($q) {
   }
 
   $con->close();
-  echo "Hello";
   return true;
 }

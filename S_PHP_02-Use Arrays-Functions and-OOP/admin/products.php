@@ -42,15 +42,14 @@ $products = getProducts();
               <td class="align-middle"><?= $product["color_name"] ?></td>
               <td class="align-middle"><?= $product["size_name"] ?></td>
               <td class="align-middle"><?= $product["discount"] * 100 ?>%</td>
-              <td class="align-middle"><?= $product["price"] ?></td>
+              <td class="align-middle">$<?= $product["price"] ?></td>
               <td class="align-middle"><?= getHTMLStars($product["rating"]) . " (" . number_format($product["rating"] ?? 0, 1) . ")" ?></td>
-              <td>
-                <form action="edit-product.php" method="POST">
-                  <input type="text" name="id" value="<?= $product["id"] ?>" hidden>
-                  <button type="submit" class="btn btn-primary font-weight-bold">Edit</button>
-                  <form>
+              <td class="align-middle">
+                <a class="btn btn-primary font-weight-bold" href="edit-product.php?id=<?= $product["id"] ?>">
+                  Edit
+                </a>
               </td>
-              <td>
+              <td class="align-middle">
                 <form action="delete-product.php" method="POST">
                   <input type="text" name="id" value="<?= $product["id"] ?>" hidden>
                   <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
