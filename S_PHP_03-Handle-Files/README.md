@@ -7,7 +7,7 @@
 5. refactor code to use cartline.php.
 
 ## Please Note::
-   My Datebase configuration is:
+   My Database configuration is:
    1. username = `online-shop`
    2. password = `O@nline123`
    3. database name = `shop`
