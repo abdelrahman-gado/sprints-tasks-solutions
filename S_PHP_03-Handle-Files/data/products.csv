@@ -1,0 +1,8 @@
+1,Product 1,100,0.1,5,false,100,img/product-1.jpg,true
+2,Product 2,110,0,4.5,false,100,img/product-2.jpg,true
+3,Product 3,90,0.15,3.5,false,100,img/product-3.jpg,true
+4,Product 4,95,0,3.5,false,100,img/product-4.jpg,true
+5,Product 5,120,0.15,2,true,100,img/product-5.jpg,false
+6,Product 6,12,0.2,2,true,100,img/product-6.jpg,false
+7,Product 7,250,0,4,true,100,img/product-1.jpg,false
+8,Product 8,300,0.3,3,true,100,img/product-2.jpg,false
