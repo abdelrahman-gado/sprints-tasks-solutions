@@ -66,7 +66,11 @@ function decreaseCartItemQuantity($productId) {
     header("Location: index.php");
     die();
   } else {
-    $_SESSION["cart"][$index]["quantity"] -= 1;
+    if ($_SESSION["cart"][$index]["quantity"] > 1) {
+      $_SESSION["cart"][$index]["quantity"] -= 1;
+    } else {
+      unset($_SESSION['cart'][$index]);
+    }
   }
 }
 
